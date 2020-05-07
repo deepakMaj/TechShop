@@ -51,10 +51,10 @@
 				<div class="card-deck">
 					<c:forEach items="${products}" var="product">
 					  <div class="col-lg-4 col-sm-6">
-					 	 <div class="card" style="width: 20rem;border:none;margin-bottom: 8vh;margin-left: 4vh;">
+					 	 <div class="card" style="width: 20rem;border:none;margin-bottom: 10vh;margin-left: 4vh">
 						    <img src="<c:url value="${product.url}"/>" class="card-img-top">
 						    <div class="card-body" style="height:12rem">
-						     	<h5 class="card-title" style="font-size:18px;">${product.productName}</h5><hr>
+						     	<h5 class="card-title" style="font-size:17px;">${product.productName}</h5><hr>
 						        <a href="<c:url value="product/view/${product.productId}"/>" class="d-flex justify-content-center btn btn-primary">View</a> 
 							   <sec:authorize access="hasRole('ADMIN')">
 								    <div class="d-flex justify-content-center mt-3"> 

@@ -59,11 +59,21 @@ public class Customer_info {
 	@JoinColumn(name="cartId")
 	private Cart cart;
 	
+	private int enabled;
+	
 	public Customer_info() {
 	}
 
 	public Cart getCart() {
 		return cart;
+	}
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
 	}
 
 	public void setCart(Cart cart) {

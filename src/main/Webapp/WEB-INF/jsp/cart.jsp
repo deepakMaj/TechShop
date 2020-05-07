@@ -69,7 +69,7 @@
 		                    <tr>
 		                        <td></td><td></td><td></td>
 		                        <td>
-		                        <a href="${pageContext.request.contextPath}/product/list" class="btn btn-light text-nowrap"><i class="fas fa-shopping-cart mr-1"></i>Continue Shopping</a></td>
+		                        <a href="${pageContext.request.contextPath}/product/list/0" class="btn btn-light text-nowrap"><i class="fas fa-shopping-cart mr-1"></i>Continue Shopping</a></td>
 		                        <td>
 		                        <button type="button" class="btn btn-success text-nowrap">Checkout<i class="ml-1 fas fa-credit-card"></i></button></td>
 		                    </tr>

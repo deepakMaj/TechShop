@@ -29,7 +29,7 @@ public class AdminController {
 	
 	@PostMapping("/new")
 	public ModelAndView addProductProcess(@ModelAttribute("product_detail") Product product) {
-		ModelAndView model = new ModelAndView("redirect:/product/list");
+		ModelAndView model = new ModelAndView("redirect:/product/list/0");
 		productservice.addproduct(product);
 		model.addObject("productsuccess", true);
 		return model;
@@ -44,7 +44,7 @@ public class AdminController {
 	
 	@PostMapping("/edit/{productId}")
 	public ModelAndView updateProductProcess(@ModelAttribute("productdetails") Product product) {
-		ModelAndView model = new ModelAndView("redirect:/product/list?updatesuccess");
+		ModelAndView model = new ModelAndView("redirect:/product/list/0?updatesuccess");
 		productservice.updateproduct(product);
 		model.addObject("updatesuccess", true);
 		return model;

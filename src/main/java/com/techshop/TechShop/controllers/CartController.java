@@ -33,7 +33,11 @@ public class CartController {
 			double grandTotal = 0.0;
 			List<CartItem> cartitems = customer.getCart().getCartitems();
 			for(CartItem x : cartitems) {
-				grandTotal += Double.parseDouble(x.getPrice());
+				String[] arr = x.getPrice().split(",");
+				String total = "";
+				for(String y : arr)
+					total += y;
+				grandTotal += Double.parseDouble(total);
 			}
 			model.addObject("grandtotal", (int)grandTotal);
  			model.addObject("cartitems",customer.getCart().getCartitems());
