@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-/com.techshop.Techshop.security
+src/main/java/com.techshop.Techshop.security
 
 ### STS ###
 .apt_generated
