@@ -16,4 +16,6 @@ public interface ProductService {
 
 	void deleteproduct(int id);
 
+	List<Product> getByCategory(String string);
+
 }

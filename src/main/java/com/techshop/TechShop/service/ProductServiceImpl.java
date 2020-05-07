@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 	@Transactional
 	public List<Product> getproducts(Integer pageNo, Integer pageSize) {
 		Pageable paging = PageRequest.of(pageNo, pageSize);
-		Page<Product>products = productdao.findAll(paging);
+		Page<Product> products = productdao.findAll(paging);
 		return products.getContent();
 	}
 
@@ -49,6 +49,12 @@ public class ProductServiceImpl implements ProductService {
 	@Transactional
 	public void deleteproduct(int id) {
 		productdao.deleteById(id);
+	}
+
+	@Override
+	@Transactional
+	public List<Product> getByCategory(String string) {
+		return productdao.findByCategory(string);
 	}
 
 	

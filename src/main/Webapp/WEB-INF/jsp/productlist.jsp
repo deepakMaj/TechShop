@@ -1,5 +1,6 @@
  <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
  <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>  
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
  <html>
  	<head>
  		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css" />
@@ -47,14 +48,21 @@
 						</button>
 					</div>
 				</c:if>
-				<h3 class="display-4 text-center">All Products</h3>
+				<c:choose>
+					<c:when test="${not empty categoryMobile}">
+						<h3 class="display-4 text-center">Mobiles</h3>
+					</c:when>
+					<c:otherwise>
+						<h3 class="display-4 text-center">All Products</h3>
+					</c:otherwise>
+				</c:choose>
 				<div class="card-deck">
 					<c:forEach items="${products}" var="product">
 					  <div class="col-lg-4 col-sm-6">
 					 	 <div class="card" style="width: 20rem;border:none;margin-bottom: 10vh;margin-left: 4vh">
-						    <img src="<c:url value="${product.url}"/>" class="card-img-top">
+						    <img src="<c:url value="${product.url}"/>" class="card-img-top" style="height:350px;width:100%;">
 						    <div class="card-body" style="height:12rem">
-						     	<h5 class="card-title" style="font-size:17px;">${product.productName}</h5><hr>
+						     	<h5 class="card-title" style="font-size:17px;">${fn:substring(product.productName, 0, 80)}...</h5><hr>
 						        <a href="<c:url value="product/view/${product.productId}"/>" class="d-flex justify-content-center btn btn-primary">View</a> 
 							   <sec:authorize access="hasRole('ADMIN')">
 								    <div class="d-flex justify-content-center mt-3"> 
@@ -68,6 +76,7 @@
 					</c:forEach>
 				</div>
 			</div>
+		<c:if test="${empty categoryMobile && empty categoryLaptop}">
 		<nav>
 		  <ul class="pagination justify-content-center">
 		   	<li class="page-item">
@@ -85,6 +94,7 @@
       		</li>
 		  </ul>
 		</nav>
+		</c:if>
 		</body>
 	<jsp:include page="footer.jsp"></jsp:include>
  </html>

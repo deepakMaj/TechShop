@@ -32,9 +32,23 @@ public class ProductController {
 										@RequestParam(value="updatesuccess", required=false) String updatesuccess,
 										@RequestParam(value="alreadyadded", required=false) String alreadyadded,
 										@RequestParam(value="deleteproduct", required=false) String deleteproduct,
-										@PathVariable("pageNo") Integer pageNo,@RequestParam(defaultValue= "6") Integer pageSize, Model model) {
-		List<Product> products = productservice.getproducts(pageNo, pageSize);
-		model.addAttribute("products", products);
+										@RequestParam(value="laptops", required=false) String laptop,
+										@RequestParam(value="mobiles", required=false) String mobile,
+										@PathVariable("pageNo") Integer pageNo,@RequestParam(defaultValue= "9") Integer pageSize, Model model) {
+		if(mobile != null) {
+			List<Product> mobiles = productservice.getByCategory("Mobile");
+			model.addAttribute("products", mobiles);
+			model.addAttribute("categoryMobile", true);
+		}
+		else if(laptop != null) {
+			List<Product> laptops = productservice.getByCategory("Laptop");
+			model.addAttribute("products", laptops);
+			model.addAttribute("categoryLaptop", true);
+		}
+		else {
+			List<Product> products = productservice.getproducts(pageNo, pageSize);
+			model.addAttribute("products", products);
+		}
 		if(productsuccess != null)
 			model.addAttribute("productsuccess", "Product was added successfully");
 		if(accesserror != null)

@@ -19,10 +19,10 @@
 	        <a class="nav-link" href="${pageContext.request.contextPath}/product/list/0">Products</a>
 	      </li>
 	      <li class="nav-item ">
-	        <a class="nav-link" href="#">Mobiles</a>
+	        <a class="nav-link" href="${pageContext.request.contextPath}/product/list/0?mobiles">Mobiles</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Laptops</a>
+	        <a class="nav-link" href="${pageContext.request.contextPath}/product/list/0?laptops">Laptops</a>
 	      </li>
 	      <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,8 +31,8 @@
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="#">Oneplus</a>
 	          <a class="dropdown-item" href="#">Apple</a>
-	          <a class="dropdown-item" href="#">Samsung</a>
-	          <a class="dropdown-item" href="#">Redmi</a>
+	          <a class="dropdown-item" href="#">HP</a>
+	          <a class="dropdown-item" href="#">Dell</a>
 	        </div>
 	      </li>
 	      <li class="nav-item">
