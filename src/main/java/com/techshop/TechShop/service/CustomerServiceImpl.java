@@ -17,7 +17,7 @@ import com.techshop.TechShop.entity.Shipping_details;
 @Service
 public class CustomerServiceImpl implements CustomerService{
 	
-	private String roleName = "ROLE_ADMIN";
+	private String roleName = "ROLE_USER";
 
 	private CustomerDao customerdao;
 	
@@ -33,8 +33,10 @@ public class CustomerServiceImpl implements CustomerService{
 	@Transactional
 	public void savecustomer(Customer_info customer) {
 		CustomerAuthority role = new CustomerAuthority();
+		if(customer.getEmail().equals("deepakmahajan269@gmail.com")) {
+			roleName = "ROLE_ADMIN";
+		}
 		role.setAuthority(roleName);
-		roleName = "ROLE_USER";
 		List<CustomerAuthority> roles = new ArrayList<>();
 		roles.add(role); 
 		Cart cart = new Cart();
