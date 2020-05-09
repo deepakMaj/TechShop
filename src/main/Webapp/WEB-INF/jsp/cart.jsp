@@ -1,9 +1,14 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <head>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css" />
+	 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css" />
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
+	 <sec:authorize access="!isAuthenticated()">
+		<% response.sendRedirect("/?loginaccesserror"); %>
+	</sec:authorize>
 	<c:choose>
 		<c:when test="${not empty nocartitems}">
 			<div class="container main">
@@ -71,7 +76,7 @@
 		                        <td>
 		                        <a href="${pageContext.request.contextPath}/product/list/0" class="btn btn-light text-nowrap"><i class="fas fa-shopping-cart mr-1"></i>Continue Shopping</a></td>
 		                        <td>
-		                        <button type="button" class="btn btn-success text-nowrap">Checkout<i class="ml-1 fas fa-credit-card"></i></button></td>
+		                        <a href="${pageContext.request.contextPath}/order/${cartId}" class="btn btn-success text-nowrap">Checkout<i class="ml-1 fas fa-credit-card"></i></a></td>
 		                    </tr>
 		                </tbody>
 		            </table>

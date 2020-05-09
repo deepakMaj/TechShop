@@ -26,6 +26,9 @@ public class Cart {
 	
 	@OneToMany(mappedBy="cart")
 	private List<CartItem> cartitems;
+	
+	@OneToOne(mappedBy="cart")
+	private CustomerOrder customerOrder;
 
 	public List<CartItem> getCartitems() {
 		return cartitems;

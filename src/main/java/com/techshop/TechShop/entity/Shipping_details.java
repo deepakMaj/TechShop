@@ -35,6 +35,9 @@ public class Shipping_details {
 	@Digits(integer = 6, message = "Enter valid pincode", fraction = 0)
 	@Column(name="pincode")
 	private long pincode;
+	
+	@OneToOne(mappedBy="shippingDetails")
+	private CustomerOrder customerOrder;
 
 	public Customer_info getCustomer() {
 		return customer;

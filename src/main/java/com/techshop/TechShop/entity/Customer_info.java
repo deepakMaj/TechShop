@@ -59,6 +59,9 @@ public class Customer_info {
 	@JoinColumn(name="cartId")
 	private Cart cart;
 	
+	@OneToOne(mappedBy="customer")	
+	private CustomerOrder customerOrder;
+	
 	private int enabled;
 	
 	public Customer_info() {
