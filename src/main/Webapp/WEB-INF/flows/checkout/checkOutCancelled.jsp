@@ -9,12 +9,16 @@
 	        <section>
 	            <div class="jumbotron">
 	                <div class="container">
-	                    <h1>Invalid Cart!</h1>
-	                     <p><a href="<spring:url value="/product/list/0" />" class="btn btn-default">Products</a></p>
+	                    <h1 class="alert alert-danger">Checkout cancelled!</h1>
+	                    <h6>Your checkout process is cancelled! You may continue shopping.</h6>
 	                </div>
 	            </div>
 	        </section>
+	
+	        <section class="container">
+	            <p><a href="<spring:url value="/product/list/0" />" class="btn btn-default">Products</a></p>
+	        </section>
 		</div>
-	</div> 
-</body> 
-<jsp:include page="footer.jsp"></jsp:include>
+	</div>
+</body>
+<jsp:include page="navbar.jsp"></jsp:include>

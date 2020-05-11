@@ -11,5 +11,35 @@
         <transition to="invalidCartWarning" on-exception="java.io.IOException" />
         <transition to="reviewShippingDetails" />
     </action-state>
+    
+    <view-state id="reviewShippingDetails" view="reviewShippingDetails.jsp" model="order">
+    	<transition on="reviewedShippingDetails" to="orderConfirmation"></transition>
+    </view-state>
+    
+     <view-state id="orderConfirmation">
+        <transition on="orderConfirmed" to="processOrder" />
+        <transition on="backToReviewShippingDetails" to="reviewShippingDetails" />
+    </view-state>
+    
+   <action-state id="processOrder">
+        <evaluate expression="cartItemServiceImpl.removeall(order.cart)" />
+        <transition to="thankCustomer" />
+    </action-state>
+    
+    <view-state id="thankCustomer" model="order">
+        <transition to="endState" />
+    </view-state>
+    
+    <view-state id="invalidCartWarning">
+        <transition to="endState" />
+    </view-state>
+    
+    <end-state id="endState" />
+
+    <end-state id="cancelCheckout" view="checkOutCancelled.jsp" />
+
+    <global-transitions>
+        <transition on="cancel" to="cancelCheckout" />
+    </global-transitions>
 
 </flow>

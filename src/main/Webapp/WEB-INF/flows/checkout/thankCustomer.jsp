@@ -9,12 +9,15 @@
 	        <section>
 	            <div class="jumbotron">
 	                <div class="container">
-	                    <h1>Invalid Cart!</h1>
-	                     <p><a href="<spring:url value="/product/list/0" />" class="btn btn-default">Products</a></p>
+	                    <h1>Thank you for your business!</h1>
+	                    <h6>Your order will be shipped in two business days!</h6>
 	                </div>
 	            </div>
 	        </section>
+	        <section class="container">
+	            <p><a href="<spring:url value="/" />" class="btn btn-default">Explore</a></p>
+	        </section>
 		</div>
-	</div> 
-</body> 
+	</div>
+</body>
 <jsp:include page="footer.jsp"></jsp:include>

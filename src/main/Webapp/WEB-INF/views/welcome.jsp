@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>TechShop</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css" />
+    <link rel="stylesheet" href="<c:url value="/resources/static/css/application.css" />" />
 </head>
 <body class="body">
    <jsp:include page="navbar.jsp"></jsp:include>

@@ -3,7 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <head>
-	 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css" />
+	 <link rel="stylesheet" href="<c:url value="/resources/static/css/signup.css" />" />
 	 <sec:authorize access="isAuthenticated()">
 		<% response.sendRedirect("/?signupaccesserror"); %>
 	</sec:authorize>

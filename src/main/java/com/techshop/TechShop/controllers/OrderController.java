@@ -21,10 +21,14 @@ public class OrderController {
 	@Autowired
 	private CustomerOrderService orderservice;
 	
-	@RequestMapping("/order/${cartId}")
+	@RequestMapping("/order/{cartId}")
 	public String createOrder(@PathVariable("cartId") int cartId, Model model) {
 		CustomerOrder customerOrder = new CustomerOrder();
 		Cart cart = cartservice.getcartbyid(cartId);
+		if(cart.getCustomer().getShipping_details() == null) {
+			model.addAttribute("noDetails", true);
+			return "redirect:/product/list/0?noDetails";
+		}
 		customerOrder.setCart(cart);
 		Customer_info customer = cart.getCustomer();
 		customerOrder.setCustomer(customer);

@@ -40,6 +40,7 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 			.antMatchers("/").permitAll()
 			.antMatchers("/admin/product/**").access("hasRole('ADMIN')")
+			.antMatchers("/order/{cartId}").authenticated()
 			.and()
 				.formLogin().loginPage("/login").loginProcessingUrl("/login")
 				.defaultSuccessUrl("/?login")

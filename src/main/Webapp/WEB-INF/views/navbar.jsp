@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<base href="/"> 
 	 <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
-        rel="stylesheet">
+        rel="stylesheet" />
 </head>
 <nav class="navbar navbar-expand-xl navbar-light bg-light">
 	  <a class="navbar-brand" href="/">TechShop<i class="fab fa-accusoft" style="margin-left: 2px"></i></a>

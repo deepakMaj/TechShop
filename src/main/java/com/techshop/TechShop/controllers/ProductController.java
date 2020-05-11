@@ -32,6 +32,7 @@ public class ProductController {
 										@RequestParam(value="updatesuccess", required=false) String updatesuccess,
 										@RequestParam(value="alreadyadded", required=false) String alreadyadded,
 										@RequestParam(value="deleteproduct", required=false) String deleteproduct,
+										@RequestParam(value="noDetails", required=false) String nodetails,
 										@RequestParam(value="laptops", required=false) String laptop,
 										@RequestParam(value="mobiles", required=false) String mobile,
 										@PathVariable("pageNo") Integer pageNo,@RequestParam(defaultValue= "9") Integer pageSize, Model model) {
@@ -57,6 +58,8 @@ public class ProductController {
 			model.addAttribute("updatesuccess", "Product was updated successfully");
 		if(deleteproduct != null)
 			model.addAttribute("deleteproduct", "Product was deleted successfully");
+		if(nodetails != null)
+			model.addAttribute("nodetails", "Add Shipping Details for checkout");
 		if(alreadyadded != null)
 			model.addAttribute("alreadyadded", "Product is already added in Cart");
 		return "productlist";

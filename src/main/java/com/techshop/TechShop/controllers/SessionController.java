@@ -98,8 +98,16 @@ public class SessionController {
 	
 	@GetMapping("/shipping_details_form")
 	public String shipping_details(Model model) {
-		Shipping_details shipping_details = new Shipping_details();
-		model.addAttribute("shipping_details", shipping_details);
+		String user = SecurityContextHolder.getContext().getAuthentication().getName();
+		Customer_info customer = customerservice.getUserByEmail(user).get(0);
+		if(customer.getShipping_details() != null) {
+			System.out.println("ok");
+			model.addAttribute("shipping_details", customer.getShipping_details());
+		}
+		else {
+			Shipping_details shipping_details = new Shipping_details();
+			model.addAttribute("shipping_details", shipping_details);
+		}
 		model.addAttribute("shippingdetailsaccesserror", true);
 		return "shipping_form";
 	}

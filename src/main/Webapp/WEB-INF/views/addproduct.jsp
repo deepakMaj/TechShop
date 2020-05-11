@@ -3,7 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <head>
-	 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css" />
+	 <link rel="stylesheet" href="<c:url value="/resources/static/css/application.css" />" />
 </head>
 <jsp:include page="navbar.jsp"></jsp:include>
   <div class="container-fluid">

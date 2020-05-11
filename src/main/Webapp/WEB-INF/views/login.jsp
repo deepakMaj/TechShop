@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>  
 <head>
-	 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
+	 <link rel="stylesheet" href="<c:url value="/resources/static/css/login.css" />" />
     <sec:authorize access="isAuthenticated()">
 		<% response.sendRedirect("views/?loginaccesserror"); %>
 	</sec:authorize>

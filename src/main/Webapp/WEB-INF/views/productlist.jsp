@@ -3,7 +3,7 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
  <html>
  	<head>
- 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css" />
+ 		<link rel="stylesheet" href="<c:url value="/resources/static/css/application.css" />" />
  	</head>
 	 <body>
 		 <jsp:include page="navbar.jsp"></jsp:include>
@@ -11,6 +11,14 @@
 		 		<c:if test="${not empty productsuccess}">
 					<div class="alert alert-warning alert-dismissible fade show" role="alert">
 						<strong>${productsuccess}</strong>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    		<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</c:if>
+				<c:if test="${not empty nodetails}">
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						<strong>${nodetails}</strong>
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				    		<span aria-hidden="true">&times;</span>
 						</button>
