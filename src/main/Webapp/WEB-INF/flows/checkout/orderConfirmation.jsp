@@ -5,7 +5,7 @@
  		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp"></jsp:include>
+	<%@ include file="/WEB-INF/views/navbar.jsp" %>
 	<jsp:useBean id="now" class="java.util.Date" />
 
 	<div class="container-wrapper">
@@ -84,4 +84,4 @@
 		</div>
 	</div>
 </body>
-<jsp:include page="footer.jsp"></jsp:include>
+<%@ include file="/WEB-INF/views/footer.jsp" %>

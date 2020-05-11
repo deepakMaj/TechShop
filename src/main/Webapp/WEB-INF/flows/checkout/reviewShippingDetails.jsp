@@ -3,7 +3,7 @@
  		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css" />
 </head>
 <body>
-<jsp:include page="navbar.jsp"></jsp:include>
+<%@ include file="/WEB-INF/views/navbar.jsp" %>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -38,4 +38,4 @@
 			</div>
         </div>
 </body>
-<jsp:include page="footer.jsp"></jsp:include>
+<%@ include file="/WEB-INF/views/footer.jsp" %>
