@@ -16,7 +16,7 @@ public class CartServiceImpl implements CartService {
 	private CartDao cartdao;
 	
 	@Autowired
-	private CustomerOrderService orderService;
+	private OrderService orderService;
 
 	@Override
 	@Transactional

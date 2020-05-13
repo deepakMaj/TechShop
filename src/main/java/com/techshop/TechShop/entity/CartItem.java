@@ -1,5 +1,6 @@
 package com.techshop.TechShop.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +12,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="cartitem")
-public class CartItem {
+public class CartItem  implements Serializable{
+
+	private static final long serialVersionUID = -6990744045368627223L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

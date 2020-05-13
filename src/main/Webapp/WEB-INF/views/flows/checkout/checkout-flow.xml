@@ -4,7 +4,7 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           			http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
-	<var name="order" class="com.techshop.Techshop.entity.CustomerOrder" />
+	<var name="order" class="com.techshop.TechShop.entity.CartOrder" />
 	
 	<action-state id="addCartToOrder">
         <evaluate expression="cartServiceImpl.validate(requestParameters.cartId)" result="order.cart" />
@@ -12,31 +12,27 @@
         <transition to="reviewShippingDetails" />
     </action-state>
     
-    <view-state id="reviewShippingDetails" view="reviewShippingDetails.jsp" model="order">
+    <view-state id="reviewShippingDetails" view="flows/checkout/reviewShippingDetails" model="order">
     	<transition on="reviewedShippingDetails" to="orderConfirmation"></transition>
     </view-state>
     
-     <view-state id="orderConfirmation">
+     <view-state id="orderConfirmation" view="flows/checkout/orderConfirmation" model="order">
         <transition on="orderConfirmed" to="processOrder" />
         <transition on="backToReviewShippingDetails" to="reviewShippingDetails" />
     </view-state>
     
    <action-state id="processOrder">
-        <evaluate expression="cartItemServiceImpl.removeall(order.cart)" />
-        <transition to="thankCustomer" />
+   		<evaluate expression= "customerOrderServiceImpl.saveOrder(order)"/>
+        <transition to="endState">
+        	 <evaluate expression="cartItemServiceImpl.removeall(order.cart.cartitems)" />
+        </transition>
     </action-state>
     
-    <view-state id="thankCustomer" model="order">
-        <transition to="endState" />
-    </view-state>
+	<end-state id="invalidCartWarning" view="flows/checkout/invalidCartWarning" />
     
-    <view-state id="invalidCartWarning">
-        <transition to="endState" />
-    </view-state>
-    
-    <end-state id="endState" />
+    <end-state id="endState" view="flows/checkout/thankCustomer" />
 
-    <end-state id="cancelCheckout" view="checkOutCancelled.jsp" />
+    <end-state id="cancelCheckout" view="flows/checkout/checkOutCancelled" />
 
     <global-transitions>
         <transition on="cancel" to="cancelCheckout" />

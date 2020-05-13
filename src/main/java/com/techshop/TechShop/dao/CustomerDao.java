@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-
 import com.techshop.TechShop.entity.Customer_info;
 
 public interface CustomerDao extends JpaRepository<Customer_info, Integer> {

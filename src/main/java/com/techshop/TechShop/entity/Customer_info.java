@@ -1,5 +1,6 @@
 package com.techshop.TechShop.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -20,7 +22,9 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="customer_info")
-public class Customer_info {
+public class Customer_info  implements Serializable{
+
+	private static final long serialVersionUID = 6049362074408376820L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -60,12 +64,39 @@ public class Customer_info {
 	private Cart cart;
 	
 	@OneToOne(mappedBy="customer")	
-	private CustomerOrder customerOrder;
+	private CartOrder customerOrder;
+	
+	@OneToMany(mappedBy="customer")
+	private List<CustomerOrder> orders;
 	
 	private int enabled;
 	
 	public Customer_info() {
 	}
+
+	public CartOrder getCustomerOrder() {
+		return customerOrder;
+	}
+
+
+
+	public void setCustomerOrder(CartOrder customerOrder) {
+		this.customerOrder = customerOrder;
+	}
+
+
+
+	public List<CustomerOrder> getOrders() {
+		return orders;
+	}
+
+
+
+	public void setOrders(List<CustomerOrder> orders) {
+		this.orders = orders;
+	}
+
+
 
 	public Cart getCart() {
 		return cart;

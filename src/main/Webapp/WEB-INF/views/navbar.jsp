@@ -7,6 +7,7 @@
 	<base href="/"> 
 	 <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
         rel="stylesheet" />
+     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <nav class="navbar navbar-expand-xl navbar-light bg-light">
 	  <a class="navbar-brand" href="/">TechShop<i class="fab fa-accusoft" style="margin-left: 2px"></i></a>
@@ -76,3 +77,5 @@
 	    	</sec:authorize>
 	    </div>
 </nav>
+ <script src="webjars/jquery/3.5.0/jquery.min.js"></script>
+ <script src="webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>

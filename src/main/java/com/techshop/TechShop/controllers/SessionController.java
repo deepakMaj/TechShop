@@ -101,7 +101,6 @@ public class SessionController {
 		String user = SecurityContextHolder.getContext().getAuthentication().getName();
 		Customer_info customer = customerservice.getUserByEmail(user).get(0);
 		if(customer.getShipping_details() != null) {
-			System.out.println("ok");
 			model.addAttribute("shipping_details", customer.getShipping_details());
 		}
 		else {

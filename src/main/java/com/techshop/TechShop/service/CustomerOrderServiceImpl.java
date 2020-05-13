@@ -1,5 +1,6 @@
 package com.techshop.TechShop.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,35 +8,35 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.techshop.TechShop.dao.CustomerOrderDao;
-import com.techshop.TechShop.entity.Cart;
 import com.techshop.TechShop.entity.CartItem;
+import com.techshop.TechShop.entity.CartOrder;
 import com.techshop.TechShop.entity.CustomerOrder;
 
 @Service
-public class CustomerOrderServiceImpl implements CustomerOrderService {
+public class CustomerOrderServiceImpl implements CustomerOrderService{
 	
 	@Autowired
-	private CustomerOrderDao orderDao;
+	private CustomerOrderDao customerOrderDao;
 	
-	@Autowired
-	private CartService cartService;
-
 	@Override
 	@Transactional
-	public void addOrder(CustomerOrder customerOrder) {
-		orderDao.save(customerOrder);
-	}
-
-	@Override
-	@Transactional
-	public double getCustomerGrandTotal(int cartId) {
-		double grandTotal = 0.0;
-		Cart cart = cartService.getcartbyid(cartId);
-		List<CartItem> cartitems = cart.getCartitems();
+	public void saveOrder(CartOrder order) {
+		CustomerOrder customerOrder = new CustomerOrder();
+		customerOrder.setCustomer(order.getCart().getCustomer());
+		customerOrder.setGrandTotal(order.getCart().getGrandTotal());
+		List<CartItem> cartitems = order.getCart().getCartitems();
+		ArrayList<Integer> productIds = new ArrayList<>();
 		for(CartItem x : cartitems) {
-			grandTotal += Double.parseDouble(x.getPrice());
+			productIds.add(x.getProduct().getProductId());
 		}
-		return grandTotal;
+		customerOrder.setProductItems(productIds);
+		customerOrderDao.save(customerOrder);
 	}
+
+	@Override
+	public List<CustomerOrder> findOrder() {
+		return customerOrderDao.findAll();
+	}
+
 
 }

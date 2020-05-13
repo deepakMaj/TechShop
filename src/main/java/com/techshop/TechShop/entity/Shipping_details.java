@@ -1,5 +1,7 @@
 package com.techshop.TechShop.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,9 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Shipping_details")
-public class Shipping_details {
+public class Shipping_details  implements Serializable{
+
+	private static final long serialVersionUID = -4084285115314963379L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +41,7 @@ public class Shipping_details {
 	private long pincode;
 	
 	@OneToOne(mappedBy="shippingDetails")
-	private CustomerOrder customerOrder;
+	private CartOrder customerOrder;
 
 	public Customer_info getCustomer() {
 		return customer;

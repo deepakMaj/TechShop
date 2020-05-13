@@ -20,8 +20,7 @@ public class WebFlowConfiguration extends AbstractFlowConfiguration{
 	@Bean
 	public FlowDefinitionRegistry flowRegistry() {
 		return getFlowDefinitionRegistryBuilder(flowBuilderServices())
-				.setBasePath("/WEB-INF/flows")
-				.addFlowLocation("/checkout/ckeckout.xml").build();
+				.addFlowLocation("/WEB-INF/views/flows/checkout/checkout-flow.xml", "checkout").build();
 	}
 	
 	@Bean

@@ -1,11 +1,12 @@
 package com.techshop.TechShop.service;
 
+import java.util.List;
 import com.techshop.TechShop.entity.CustomerOrder;
+import com.techshop.TechShop.entity.CartOrder;
 
 public interface CustomerOrderService {
 
-	void addOrder(CustomerOrder customerOrder);
+	void saveOrder(CartOrder order);
 
-	double getCustomerGrandTotal(int cartId);
-
+	List<CustomerOrder> findOrder();
 }

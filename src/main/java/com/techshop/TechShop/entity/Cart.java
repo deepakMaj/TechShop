@@ -1,5 +1,6 @@
 package com.techshop.TechShop.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,8 +13,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="cart")
-public class Cart {
+public class Cart  implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="cartId")
@@ -28,7 +31,15 @@ public class Cart {
 	private List<CartItem> cartitems;
 	
 	@OneToOne(mappedBy="cart")
-	private CustomerOrder customerOrder;
+	private CartOrder customerOrder;
+
+	public CartOrder getCustomerOrder() {
+		return customerOrder;
+	}
+
+	public void setCustomerOrder(CartOrder customerOrder) {
+		this.customerOrder = customerOrder;
+	}
 
 	public List<CartItem> getCartitems() {
 		return cartitems;
