@@ -1,12 +1,13 @@
 package com.techshop.TechShop.entity;
 
 import java.io.Serializable;
-
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,6 +38,17 @@ public class Product  implements Serializable{
 	
 	@Column(name="Manufacturer")
 	private String productManufacturer;
+
+	@ManyToMany(mappedBy="productItems")
+	private List<CustomerOrder> customerOrder;
+
+	public List<CustomerOrder> getCustomerOrder() {
+		return customerOrder;
+	}
+
+	public void setCustomerOrder(List<CustomerOrder> customerOrder) {
+		this.customerOrder = customerOrder;
+	}
 
 	public int getProductId() {
 		return productId;

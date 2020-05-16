@@ -40,7 +40,7 @@
 					  </button>
 					</div>
 				</c:if>
-              <h3 class="login-heading display-4 mb-4">Welcome!</h3>
+              <h3 class="login-heading text-center display-4 mb-4">Welcome!</h3>
               <form:form action="/login" modelAttribute="logininfo" method="POST" >
                 <div class="form-label-group">
                   <form:input path="email" id="inputEmail" class="form-control" placeholder="Email address" required="autofocus" />

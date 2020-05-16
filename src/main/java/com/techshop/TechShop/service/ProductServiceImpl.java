@@ -57,5 +57,17 @@ public class ProductServiceImpl implements ProductService {
 		return productdao.findByCategory(string);
 	}
 
+	@Override
+	@Transactional
+	public List<Product> getByManufacturer(String searchValue) {
+		return productdao.findByManufacturer(searchValue);
+	}
+
+	@Override
+	@Transactional
+	public Object getallproducts() {
+		return productdao.findAll().size();
+	}
+
 	
 }

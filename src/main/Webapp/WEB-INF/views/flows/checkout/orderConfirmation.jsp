@@ -10,21 +10,20 @@
 </head>
 <body>
 	<jsp:useBean id="now" class="java.util.Date" />
-
-	<div class="container-wrapper">
-		 <div class="page-header mt-4 mb-3">
-	            <h1 class="text-center text-underline">Order confirmation</h1>
-	      </div>
-	    <div class="container mt-4 border border-dark rounded">	       
-	        <div class="container">
+	 <form:form modelAttribute="order" class=" ">
+	   <div class="container-fluid">
+		 <div class="login-heading display-4 text-center mt-4 mb-3">
+	            Order confirmation
+	     </div>
+	     <div class="container-fluid main main1 mt-4 border border-dark rounded">	       
+	        <div class="container mb-4">
 	            <div class="row">
-	                <form:form modelAttribute="order" class="form-horizontal">
-	                    <div class="well col-xs-10 col-sm-10 col-md-12 col-xs-offset-1 col-sm-offset-1 ">
+	                    <div class="well col-md-12 ">
 	                       <div class="text-center mt-4 mb-3">
 	                            <h2 style="text-decoration:underline;">Receipt</h2>
 	                       </div>
 	                        <div class="row">
-	                            <div class="col-xs-6 col-sm-6 col-md-6">
+	                            <div class="col-md-6">
 	                                <address>
 	                                    <p style="font-size:18px; font-weight:600;">Shipping Address</p>
 	                                    ${order.cart.customer.shipping_details.address}<br/>
@@ -32,7 +31,7 @@
 	                                     ${order.cart.customer.shipping_details.pincode}
 	                                </address>
 	                            </div>
-	                            <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+	                            <div class="col-md-6 text-lg-right">
 	                                <p style="font-weight:500;">Shipping Date: <fmt:formatDate type="date" value="${now}" /></p>
 	                            </div>
 	                        </div>
@@ -66,17 +65,18 @@
 	                            </table>
 	                        </div>
 	                        
-							<div class="d-flex justify-content-end">
+							<div class="d-lg-flex justify-content-end">
 		                        <input type="hidden" name="_flowExecutionKey" />
-		                        <button type="submit" class="btn btn-primary mr-2" name="_eventId_backToReviewShippingDetails">Back</button>
-		                        <button type="submit" class="btn btn-danger mr-4" name="_eventId_cancel">Cancel</button>
-		                        <button type="submit" class="btn btn-success" name="_eventId_orderConfirmed" >Submit Order</button>
+		                        <button type="submit" class="btn btn-primary mr-2 text-nowrap" name="_eventId_backToReviewShippingDetails">Back</button>
+		                        <button type="submit" class="btn btn-danger mr-4 text-nowrap" name="_eventId_cancel">Cancel</button>
+		                        <button type="submit" class="btn btn-success text-nowrap" name="_eventId_orderConfirmed" >Submit Order</button>
 	                        </div>
+	                        
 	                    </div>
-	                </form:form>
-	            </div>
-	        </div>
+	            	</div>
+	        	</div>
+			</div>
 		</div>
-	</div>
+	</form:form>
 </body>
 <%@ include file="/WEB-INF/views/footer.jsp" %>

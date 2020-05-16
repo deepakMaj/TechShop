@@ -33,9 +33,11 @@ public class ProductController {
 										@RequestParam(value="alreadyadded", required=false) String alreadyadded,
 										@RequestParam(value="deleteproduct", required=false) String deleteproduct,
 										@RequestParam(value="noDetails", required=false) String nodetails,
+										@RequestParam(value="searchValue", required=false) String searchValue,
 										@RequestParam(value="laptops", required=false) String laptop,
 										@RequestParam(value="mobiles", required=false) String mobile,
-										@PathVariable("pageNo") Integer pageNo,@RequestParam(defaultValue= "9") Integer pageSize, Model model) {
+										@RequestParam(name="brandProduct", required=false) String brandProduct,
+										@PathVariable("pageNo") Integer pageNo,@RequestParam(defaultValue= "6") Integer pageSize, Model model) {
 		if(mobile != null) {
 			List<Product> mobiles = productservice.getByCategory("Mobile");
 			model.addAttribute("products", mobiles);
@@ -46,8 +48,24 @@ public class ProductController {
 			model.addAttribute("products", laptops);
 			model.addAttribute("categoryLaptop", true);
 		}
+		else if(searchValue != null) {
+			List<Product> searchProducts = productservice.getByManufacturer(searchValue);
+			if(searchProducts.isEmpty()) {
+				model.addAttribute("noProducts", true);
+			}
+			else {
+				model.addAttribute("products", searchProducts);
+				model.addAttribute("searchValue", true);
+			}
+		}
+		else if(brandProduct != null) {
+			List<Product> brandProducts = productservice.getByManufacturer(brandProduct);
+			model.addAttribute("products", brandProducts);
+			model.addAttribute("searchValue", true);
+		}
 		else {
 			List<Product> products = productservice.getproducts(pageNo, pageSize);
+			model.addAttribute("pages", Math.ceil((int)productservice.getallproducts()/pageSize));
 			model.addAttribute("products", products);
 		}
 		if(productsuccess != null)

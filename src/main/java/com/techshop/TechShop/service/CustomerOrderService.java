@@ -9,4 +9,6 @@ public interface CustomerOrderService {
 	void saveOrder(CartOrder order);
 
 	List<CustomerOrder> findOrder();
+
+	void cancelOrder(int orderId);
 }

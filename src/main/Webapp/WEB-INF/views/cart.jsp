@@ -10,7 +10,7 @@
 	</sec:authorize>
 	<c:choose>
 		<c:when test="${not empty nocartitems}">
-			<div class="container main">
+			<div class="container main1 main">
 				 <div class="jumbotron">
 					  <h3 class="display-4 text-center">You have no items in your Cart. Look around to get your desired product</h3>
 					  <div class="d-flex justify-content-center">

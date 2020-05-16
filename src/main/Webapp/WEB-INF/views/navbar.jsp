@@ -7,7 +7,7 @@
 	<base href="/"> 
 	 <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
         rel="stylesheet" />
-     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+     <link rel="shortcut icon" href="<c:url value="/resources/static/images/download.png"/>" type="image/png" />
 </head>
 <nav class="navbar navbar-expand-xl navbar-light bg-light">
 	  <a class="navbar-brand" href="/">TechShop<i class="fab fa-accusoft" style="margin-left: 2px"></i></a>
@@ -30,10 +30,10 @@
 	          Brands
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">Oneplus</a>
-	          <a class="dropdown-item" href="#">Apple</a>
-	          <a class="dropdown-item" href="#">HP</a>
-	          <a class="dropdown-item" href="#">Dell</a>
+	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Oneplus">Oneplus</a>
+	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Apple">Apple</a>
+	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=HP">HP</a>
+	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Dell">Dell</a>
 	        </div>
 	      </li>
 	      <li class="nav-item">
@@ -49,8 +49,8 @@
 		    </form>
 		  </sec:authorize>
 		  <sec:authorize access="isAuthenticated()">
-		  		<form class="form-inline my-2 my-lg-0">
-		  			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		  		<form method="GET" action="${pageContext.request.contextPath}/product/list/0" class="form-inline my-2 my-lg-0">
+		  			<input class="form-control mr-sm-2" type="search" placeholder="Search by Brand..."  name="searchValue"/>
 			    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>	
 		  		</form>
 		    	<form:form action="${pageContext.request.contextPath}/logout" method="POST" class="form-inline my-2 my-lg-0">	
@@ -59,14 +59,15 @@
 				          Account
 				        </a>
 				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				          <p class="dropdown-item"><i class="fas fa-user mr-1"></i><strong class="text-muted" style="font-weight: 600">
+				          <p class="dropdown-item"><i class="fas fa-user mr-1"></i><em class="text-muted" style="font-weight: 500">
 				          <%String arr[] = SecurityContextHolder.getContext().getAuthentication().getName().split("@");
-				          	out.println(arr[0]);%></strong></p>
+				          	out.println(arr[0]);%></em></p>
 				          <sec:authorize access="hasRole('ADMIN')">
+				          	<hr>
 				          	<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/product/new">Add Product</a>
 				          </sec:authorize>
 				          <hr>
-				          <a class="dropdown-item" href="#">My Orders<i class="fas fa-shopping-bag ml-1"></i></a>
+				          <a class="dropdown-item" href="${pageContext.request.contextPath}/myOrders">My Orders<i class="fas fa-shopping-bag ml-1"></i></a>
 				          <a class="dropdown-item" href="${pageContext.request.contextPath}/edit_form">Edit Account<i class="fas fa-user-circle ml-1"></i></a>
 				          <a class="dropdown-item" href="${pageContext.request.contextPath}/shipping_details_form">Edit Shipping details<i class="fas fa-truck ml-1"></i></a>
 				          <a class="dropdown-item" href="${pageContext.request.contextPath}/cart/mycart">My Cart<i class="fas fa-shopping-cart ml-1"></i></a>
@@ -77,5 +78,5 @@
 	    	</sec:authorize>
 	    </div>
 </nav>
- <script src="webjars/jquery/3.5.0/jquery.min.js"></script>
+ <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
  <script src="webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>

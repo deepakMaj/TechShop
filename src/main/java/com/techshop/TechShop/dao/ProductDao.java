@@ -14,8 +14,12 @@ public interface ProductDao extends JpaRepository<Product, Integer>{
 	void update(int productId, String category, String productDescription, String productManufacturer,
 			String productName, String productPrice, String url);
 
-	@Modifying
+	@Modifying(clearAutomatically = true)
 	@Query("FROM Product p WHERE p.category= :string")
 	List<Product> findByCategory(String string);
+
+	@Modifying(clearAutomatically = true)
+	@Query("FROM Product p WHERE p.productManufacturer = :searchValue")
+	List<Product> findByManufacturer(String searchValue);
 
 }

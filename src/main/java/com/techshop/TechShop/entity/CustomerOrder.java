@@ -3,13 +3,13 @@ package com.techshop.TechShop.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -25,9 +25,11 @@ public class CustomerOrder implements Serializable{
 	@JoinColumn(name="customerId")
 	private Customer_info customer;
 	
-	@ElementCollection(targetClass=Integer.class)
-	@Column(name="productId")
-    private List<Integer> productItems;
+	@ManyToMany
+	@JoinTable(name="CustomerOrder_Product", joinColumns= {
+			@JoinColumn(name="OrderId", referencedColumnName="orderId")
+	}, inverseJoinColumns= {@JoinColumn(name="ProductId", referencedColumnName="Product_Id")})
+    private List<Product> productItems;
     
 	private double grandTotal;
 
@@ -47,11 +49,11 @@ public class CustomerOrder implements Serializable{
 		this.customer = customer;
 	}
 
-	public List<Integer> getProductItems() {
+	public List<Product> getProductItems() {
 		return productItems;
 	}
 
-	public void setProductItems(List<Integer> list) {
+	public void setProductItems(List<Product> list) {
 		this.productItems = list;
 	}
 

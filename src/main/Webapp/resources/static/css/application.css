@@ -7,6 +7,14 @@ body {
 		border: none;
 	}
 	
+	.card-body-style{
+		height:14vh;
+	}
+	
+	.text{
+		font-size: 1.2rem;
+	}
+	
 	.main{
 		margin-top: 10vh;
 		padding: inherit;
@@ -33,6 +41,11 @@ body {
 	.dropdown-menu{
 		width: fit-content;
 	}
+	
+	.text{
+		font-size: 1.6rem;
+	}
+	
 }
 
 .main1{
@@ -40,6 +53,10 @@ body {
 }
 
 @media (min-width: 992px){
+	.card-style{
+		width:20rem;
+	}
+	
 	.main{
 		margin-top: 100px;
 	}

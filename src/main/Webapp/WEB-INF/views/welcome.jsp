@@ -3,7 +3,6 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
-    <title>TechShop</title>
     <link rel="stylesheet" href="<c:url value="/resources/static/css/application.css" />" />
 </head>
 <body class="body">
@@ -78,8 +77,8 @@
 	    <div class="jumbotron">
 		  <h1 class="display-4">Welcome to TechShop <i class="fab fa-accusoft" style="margin-left: 1px"></i></h1>
 		  <hr class="my-4">
-		  <p class="psize">Dive into world of technology and explore various mobile devices from world leading mobile manufacturing companies
-		  leading the world to a better place. Buy mobile at affordable prices with our website.</p>
+		  <p class="psize">Dive into world of technology and explore various mobile and laptop devices from world leading manufacturing companies
+		  making the world a better place. Buy products at affordable prices with our website.</p>
 		  <a class="btn btn-primary btn-lg mt-4" href="${pageContext.request.contextPath}/product/list/0" role="button">Explore</a>
 		</div>
 	</div>

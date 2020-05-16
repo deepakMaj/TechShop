@@ -18,4 +18,8 @@ public interface ProductService {
 
 	List<Product> getByCategory(String string);
 
+	List<Product> getByManufacturer(String searchValue);
+
+	Object getallproducts();
+
 }
