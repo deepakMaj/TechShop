@@ -3,6 +3,7 @@ body {
 }
 
 @media (min-width: 576px) { 
+
 	.bor{
 		border: none;
 	}
@@ -53,6 +54,7 @@ body {
 }
 
 @media (min-width: 992px){
+	
 	.card-style{
 		width:20rem;
 	}
@@ -111,4 +113,24 @@ dt{
 
 dd{
 	font-size: 18px;
+}
+
+.rounded {
+    border-radius: 1rem
+}
+
+.nav-pills .nav-link {
+    color: #555
+}
+
+.nav-pills .nav-link.active {
+    color: white
+}
+
+input[type="radio"] {
+    margin-right: 5px
+}
+
+.bold {
+    font-weight: bold
 }

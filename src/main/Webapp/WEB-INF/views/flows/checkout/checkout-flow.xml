@@ -17,8 +17,12 @@
     </view-state>
     
      <view-state id="orderConfirmation" view="flows/checkout/orderConfirmation" model="order">
-        <transition on="orderConfirmed" to="processOrder" />
+        <transition on="orderConfirmed" to="orderPayment" />
         <transition on="backToReviewShippingDetails" to="reviewShippingDetails" />
+    </view-state>
+    
+    <view-state id="orderPayment" view="flows/checkout/orderPayment" model="order" >
+    	<transition on="paymentConfirmed" to="processOrder"/>
     </view-state>
     
    <action-state id="processOrder">

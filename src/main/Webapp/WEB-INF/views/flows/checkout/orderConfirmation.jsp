@@ -10,7 +10,7 @@
 </head>
 <body>
 	<jsp:useBean id="now" class="java.util.Date" />
-	 <form:form modelAttribute="order" class=" ">
+	 <form:form modelAttribute="order">
 	   <div class="container-fluid">
 		 <div class="login-heading display-4 text-center mt-4 mb-3">
 	            Order confirmation
@@ -48,8 +48,8 @@
 	                                <c:forEach var="cartItem" items="${order.cart.cartitems}">
 	                                    <tr style="font-weight:500;">
 	                                        <td class="col-md-9"><img class="float-left mr-2" src="${cartItem.product.url}" style="height:300px;width:auto;object-fit:contain;"><em>${cartItem.product.productName}</em></td>
-	                                        <td class="col-md-2" style="text-align: center">${cartItem.product.productPrice}</td>
-	                                        <td class="col-md-1" style="text-align: center">${order.cart.grandTotal}</td>
+	                                        <td class="col-md-2" style="text-align: center"><i class="fas fa-rupee-sign mr-1"></i>${cartItem.product.productPrice}</td>
+	                                        <td class="col-md-1" style="text-align: center"><i class="fas fa-rupee-sign mr-1"></i>${order.cart.grandTotal}</td>
 	                                    </tr>
 	                                </c:forEach>	
 	                                <tr>
@@ -58,7 +58,7 @@
 	                                        <h4><strong>Grand Total:</strong></h4>
 	                                    </td>
 	                                    <td class=" text-danger text-nowrap">
-	                                        <h4><strong><i class="fas fa-rupee-sign mr-1"></i> ${order.cart.grandTotal}</strong></h4>
+	                                        <h4><strong><i class="fas fa-rupee-sign mr-1"></i>${order.cart.grandTotal}</strong></h4>
 	                                    </td>
 	                                </tr>
 	                                </tbody>
@@ -69,9 +69,8 @@
 		                        <input type="hidden" name="_flowExecutionKey" />
 		                        <button type="submit" class="btn btn-primary mr-2 text-nowrap" name="_eventId_backToReviewShippingDetails">Back</button>
 		                        <button type="submit" class="btn btn-danger mr-4 text-nowrap" name="_eventId_cancel">Cancel</button>
-		                        <button type="submit" class="btn btn-success text-nowrap" name="_eventId_orderConfirmed" >Submit Order</button>
-	                        </div>
-	                        
+		                        <button type="submit" class="btn btn-success text-nowrap" name="_eventId_orderConfirmed" >Pay<i class=" ml-2 fas fa-credit-card"></i></button>
+	                        </div>                
 	                    </div>
 	            	</div>
 	        	</div>

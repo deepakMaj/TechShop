@@ -15,7 +15,7 @@
 	                    <h1>Thank you for your business!</h1>
 	                    <h4>Your order will be shipped in two business days!</h4>
 	                    <div class="mt-4">
-		                    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/product/list/0">Products</a>
+		                    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/myOrders">Orders</a>
 	                    </div>
 	           </div>
 		</div>
