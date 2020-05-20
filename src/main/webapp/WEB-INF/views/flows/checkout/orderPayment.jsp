@@ -7,7 +7,7 @@
         rel="stylesheet" />
      <link rel="stylesheet" href="<c:url value="/resources/static/css/application.css"/>" />
 </head>
-<body>
+<body class="body">
 	<div class="container" style="margin-bottom:8vh; margin-top:4vh;"></div>
 		<div class="login-heading display-4 text-center mb-5">Order Payment</div>
 	    <div class="row">
@@ -26,7 +26,7 @@
 	                                 </div>
 	                                <div class="form-group">
 	                                    <label for="cardNumber" style="font-weight:500;">Card number</label>                    
-	                                    <div class="input-group"> <input type="text" id="cardNumber" placeholder="Valid card number" class="form-control " required>
+	                                    <div class="input-group"> <input type="number" id="cardNumber" placeholder="Valid card number" class="form-control " required>
 	                                        <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
 	                                    </div>
 	                                </div>
@@ -40,7 +40,7 @@
 	                                    <div class="col-sm-4">
 	                                        <div class="form-group mb-4"> <label style="font-weight:500;" data-toggle="tooltip" title="Three digit CV code on the back of your card">
 	                                             CVV <i class="fa fa-question-circle d-inline"></i>
-	                                            </label> <input type="text" id="cvv" required class="form-control"> </div>
+	                                            </label> <input type="number" id="cvv" required class="form-control"> </div>
 	                                    </div>
 	                                </div>
 	                                <div class="card-footer">
