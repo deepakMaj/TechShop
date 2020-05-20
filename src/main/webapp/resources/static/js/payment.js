@@ -16,17 +16,17 @@ function validCard(e){
   if(cardName.type === 'number'){
     showError('Please enter valid card owner name');
   }
-  if(cardNumber.type === 'string' || cardNumber != 16){
+  if(cardNumber.type === 'string' || cardNumber.value.toString().length != 16){
     console.log(cardNumber.type);
     showError('Please enter valid card number');
   }
   if(cardMonth.value > 12 || cardMonth.value < 1){
     showError('Please enter valid month');
   }
-  if(cardYear.value < date){
+  if(cardYear.value.toString().length < date){
     showError('Please enter valid year');
   }
-  if(cardCvv.type === 'string' || cardCvv.value != 3){
+  if(cardCvv.type === 'string' || cardCvv.value.toString().length != 3){
     showError('Please enter valid Cvv number');
   }
   e.preventDefault();
