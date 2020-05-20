@@ -7,7 +7,7 @@ const cardCvv = document.getElementById('cvv');
 paymentConfirmation();
 
 function paymentConfirmation(){
-  document.getElementById('payment-form').addEventListener('submit', validCard);
+  document.getElementById('btn').addEventListener('click', validCard);
 }
 
 function validCard(e){
@@ -17,6 +17,7 @@ function validCard(e){
     showError('Please enter valid card owner name');
   }
   if(cardNumber.type === 'string' || cardNumber != 16){
+    console.log(cardNumber.type);
     showError('Please enter valid card number');
   }
   if(cardMonth.value > 12 || cardMonth.value < 1){
