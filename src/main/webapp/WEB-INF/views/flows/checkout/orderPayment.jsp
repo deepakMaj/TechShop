@@ -7,7 +7,7 @@
         rel="stylesheet" />
      <link rel="stylesheet" href="<c:url value="/resources/static/css/application.css"/>" />
 </head>
-<body class="body">
+<body>
 	<div class="container" style="margin-bottom:8vh; margin-top:4vh;"></div>
 		<div class="login-heading display-4 text-center mb-5">Order Payment</div>
 	    <div class="row">
