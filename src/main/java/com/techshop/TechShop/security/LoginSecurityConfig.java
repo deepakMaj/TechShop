@@ -1,7 +1,9 @@
 package com.techshop.TechShop.security;
 
 import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,16 +13,26 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
 @Configuration
 @EnableWebSecurity
 public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	@Autowired
-	 public DataSource dataSource;
+	@Value("${spring.datasource.url}")
+	  private String dbUrl;
+	
+	@Bean
+	  public DataSource dataSource() {
+	      HikariConfig config = new HikariConfig();
+	      config.setJdbcUrl(dbUrl);
+	      return new HikariDataSource(config);
+	  }
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder()).
+		auth.jdbcAuthentication().dataSource(dataSource()).passwordEncoder(passwordEncoder()).
 				usersByUsernameQuery("SELECT email, password, enabled FROM customer_info WHERE email=?").
 				authoritiesByUsernameQuery(
 		                "SELECT u.email, a.authority " +
