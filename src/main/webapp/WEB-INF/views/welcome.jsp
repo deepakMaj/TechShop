@@ -1,11 +1,10 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<html>
 <head>
     <link rel="stylesheet" href="<c:url value="/resources/static/css/application.css" />" />
 </head>
-<body class="body">
+<div class="body">
    <jsp:include page="navbar.jsp"></jsp:include>
 	<div class="container main main1" >
 		<sec:authorize access="isAuthenticated()">
@@ -82,6 +81,5 @@
 		  <a class="btn btn-primary btn-lg mt-4" href="${pageContext.request.contextPath}/product/list/0" role="button">Explore</a>
 		</div>
 	</div>
-</body>
+</div>
 <jsp:include page="footer.jsp"></jsp:include>
-</html>
