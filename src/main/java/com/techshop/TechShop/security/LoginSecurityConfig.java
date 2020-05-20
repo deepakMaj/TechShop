@@ -20,6 +20,9 @@ import com.zaxxer.hikari.HikariDataSource;
 @EnableWebSecurity
 public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	
+//	@Autowired
+//	private DataSource dataSource;
+	
 	@Value("${spring.datasource.url}")
 	  private String dbUrl;
 	
