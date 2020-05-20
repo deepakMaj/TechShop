@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="<c:url value="/resources/static/css/application.css" />" />
 </head>
-<div class="body">
+<body class="body">
    <jsp:include page="navbar.jsp"></jsp:include>
 	<div class="container main main1" >
 		<sec:authorize access="isAuthenticated()">
@@ -81,5 +81,5 @@
 		  <a class="btn btn-primary btn-lg mt-4" href="${pageContext.request.contextPath}/product/list/0" role="button">Explore</a>
 		</div>
 	</div>
-</div>
+</body>
 <jsp:include page="footer.jsp"></jsp:include>
