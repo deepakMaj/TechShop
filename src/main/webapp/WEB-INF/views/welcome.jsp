@@ -7,7 +7,7 @@
 </head>
 <body class="body">
    <jsp:include page="navbar.jsp"></jsp:include>
-	<div class="container main container-sm main1" >
+	<div class="container main main1" >
 		<sec:authorize access="isAuthenticated()">
 			<c:if test="${not empty loginsuccess}">
 			<div class="alert alert-warning alert-dismissible fade show" role="alert">

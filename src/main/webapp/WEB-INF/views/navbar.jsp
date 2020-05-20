@@ -40,19 +40,17 @@
 	        <a class="nav-link" href="${pageContext.request.contextPath}/about">About</a>
 	      </li>
 	    </ul>
+	    <form method="GET" action="${pageContext.request.contextPath}/product/list/0" class="form-inline my-2 my-lg-0">
+		  	<input class="form-control mr-sm-2" type="search" placeholder="Search by Brand..."  name="searchValue"/>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>	
+		  </form>
 	     <sec:authorize access="!isAuthenticated()">
 		    <form class="form-inline my-1 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		      <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="submit">Search</button>
 		      <a class="btn btn-outline-primary my-2 my-sm-0 ml-1" href="signup">Sign up</a>
 		      <a class="btn btn-outline-danger my-2 my-sm-0 ml-1" href="login">Sign In</a>
 		    </form>
 		  </sec:authorize>
 		  <sec:authorize access="isAuthenticated()">
-		  		<form method="GET" action="${pageContext.request.contextPath}/product/list/0" class="form-inline my-2 my-lg-0">
-		  			<input class="form-control mr-sm-2" type="search" placeholder="Search by Brand..."  name="searchValue"/>
-			    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>	
-		  		</form>
 		    	<form:form action="${pageContext.request.contextPath}/logout" method="POST" class="form-inline my-2 my-lg-0">	
 			     	<div class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
