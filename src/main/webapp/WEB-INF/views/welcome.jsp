@@ -82,6 +82,6 @@
 		  <a class="btn btn-primary btn-lg mt-4" href="${pageContext.request.contextPath}/product/list/0" role="button">Explore</a>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<jsp:include page="footer.jsp"></jsp:include>
 </html>
