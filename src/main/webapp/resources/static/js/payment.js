@@ -12,12 +12,10 @@ function paymentConfirmation(){
 
 function validCard(e){
   const date = new Date().getFullYear;
-  e.preventDefault();
   if(cardName.type === 'number'){
     showError('Please enter valid card owner name');
   }
   if(cardNumber.type === 'string' || cardNumber.value.toString().length != 16){
-    console.log(cardNumber.type);
     showError('Please enter valid card number');
   }
   if(cardMonth.value > 12 || cardMonth.value < 1){

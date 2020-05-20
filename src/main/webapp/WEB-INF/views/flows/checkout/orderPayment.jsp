@@ -45,7 +45,7 @@
 	                                </div>
 	                                <div class="card-footer">
 	                                	<button disabled class="btn btn-block btn-primary">Final Payment : <i class="fas fa-rupee-sign mr-1"></i>${order.cart.grandTotal}</button> 
-	                                	<button class="subscribe btn btn-success btn-block shadow-sm" id="btn" name="_eventId_paymentConfirmed" type="submit"> Confirm Payment </button>
+	                                	<button class="subscribe btn btn-success btn-block shadow-sm" name="_eventId_paymentConfirmed"> Confirm Payment </button>
 	                                	<button class="subscribe btn btn-danger btn-block shadow-sm" name="_eventId_cancel"> Cancel Payment </button>
 	                                </div>
 	                            </form:form>
