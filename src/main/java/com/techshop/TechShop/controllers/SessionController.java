@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.techshop.TechShop.dao.ConfirmationTokenDao;
 import com.techshop.TechShop.entity.ConfirmationToken;
 import com.techshop.TechShop.entity.Customer_info;
 import com.techshop.TechShop.entity.Login_info;
 import com.techshop.TechShop.entity.Shipping_details;
+import com.techshop.TechShop.service.ConfirmationTokenService;
 import com.techshop.TechShop.service.ConfirmationTokenServiceImpl;
 import com.techshop.TechShop.service.CustomerService;
 
@@ -29,7 +29,7 @@ import com.techshop.TechShop.service.CustomerService;
 public class SessionController {
 	
 	@Autowired
-	private ConfirmationTokenDao tokenDao;
+	private ConfirmationTokenService tokenService;
 	
 	@Autowired
 	 private ConfirmationTokenServiceImpl emailSenderService;
@@ -122,7 +122,7 @@ public class SessionController {
 			customer.setPassword(encodedPassword);
 			customerservice.savecustomer(customer);
 			ConfirmationToken token = new ConfirmationToken(customer);
-			tokenDao.save(token);
+			tokenService.saveToken(token);
 			SimpleMailMessage mail = new SimpleMailMessage();
 			mail.setTo(customer.getEmail());
 			mail.setSubject("Complete Registration");
@@ -138,7 +138,7 @@ public class SessionController {
 	@GetMapping(value="/confirm-account")
 	public ModelAndView confirmAccount(@RequestParam("token") String token) {
 		ModelAndView model = new ModelAndView("redirect:/login?verified");
-		ConfirmationToken confirmationToken = tokenDao.findByConfirmationToken(token);
+		ConfirmationToken confirmationToken = tokenService.findByConfirmationToken(token);
 		if(confirmationToken != null) {
 			Customer_info customer = customerservice.getUserByEmail(confirmationToken.getCustomer().getEmail()).get(0);
 			customer.setEnabled(1);
@@ -196,7 +196,7 @@ public class SessionController {
 		Customer_info existingCustomer = customerservice.getUserByEmail(customer.getEmail()).get(0);
 		if(existingCustomer != null) {
 			ConfirmationToken confirmationToken = new ConfirmationToken(existingCustomer);
-			tokenDao.save(confirmationToken);
+			tokenService.saveToken(confirmationToken);
 			SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(existingCustomer.getEmail());
             mailMessage.setSubject("Complete Password Reset!");
@@ -215,7 +215,7 @@ public class SessionController {
 	@RequestMapping(value="/confirm-reset", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView changePassoword(@RequestParam("token")String confirmationToken){
 		ModelAndView model = new ModelAndView("redirect:/reset-Password");
-		ConfirmationToken token = tokenDao.findByConfirmationToken(confirmationToken);
+		ConfirmationToken token = tokenService.findByConfirmationToken(confirmationToken);
 		if(token != null) {
 			Customer_info customer = customerservice.getUserByEmail(token.getCustomer().getEmail()).get(0);
 			model.addObject("customer", customer);
