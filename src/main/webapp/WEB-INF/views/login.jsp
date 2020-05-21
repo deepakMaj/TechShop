@@ -24,6 +24,30 @@
 				 	</button>
 				</div>
 			  </c:if>
+			  <c:if test="${not empty validmessage}">
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					<strong>${validmessage}</strong>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+				 	</button>
+				</div>
+			  </c:if>
+			  <c:if test="${not empty verified}">
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					<strong>${verified}</strong>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+				 	</button>
+				</div>
+			  </c:if>
+			  <c:if test="${not empty passwordChanged}">
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>${passwordChanged}</strong>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+				 	</button>
+				</div>
+			  </c:if>
 			  <c:if test="${not empty logout}">
 					<div class="alert alert-warning alert-dismissible fade show" role="alert">
 					  <strong>${logout}</strong>
@@ -54,7 +78,7 @@
                 
                 <form:button class="btn btn-lg btn-block btn-primary text-white rounded-pill mb-2" type="submit">Sign in</form:button>
                 <div class="text-center">
-                  <a class="small" href="#">Forgot password?</a></div>
+                  <a href="${pageContext.request.contextPath}/forgotPassword">Forgot password</a></div>
               </form:form>
             </div>
           </div>

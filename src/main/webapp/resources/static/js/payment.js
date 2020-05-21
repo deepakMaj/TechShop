@@ -14,20 +14,24 @@ function validCard(e){
   const date = new Date().getFullYear;
   if(cardName.type === 'number'){
     showError('Please enter valid card owner name');
+    e.preventDefault();
   }
   if(cardNumber.type === 'string' || cardNumber.value.toString().length != 16){
     showError('Please enter valid card number');
+    e.preventDefault();
   }
   if(cardMonth.value > 12 || cardMonth.value < 1){
     showError('Please enter valid month');
+    e.preventDefault();
   }
   if(cardYear.value.toString().length < date){
     showError('Please enter valid year');
+    e.preventDefault();
   }
   if(cardCvv.type === 'string' || cardCvv.value.toString().length != 3){
     showError('Please enter valid Cvv number');
+    e.preventDefault();
   }
-  e.preventDefault();
 }
 
 function showError(error){
@@ -36,8 +40,8 @@ function showError(error){
   alert.appendChild(document.createTextNode(error));
   const container = document.querySelector('.container');
   const heading = document.querySelector('.login-heading');
-  container.appendChild(alert, heading);
-  setTimeout(clearError, 3000);
+  container.insertBefore(alert, heading);
+  setTimeout(clearError, 5000);
 }
 
 function clearError(){

@@ -8,13 +8,13 @@
      <link rel="stylesheet" href="<c:url value="/resources/static/css/application.css"/>" />
 </head>
 <body>
-	<div class="container" style="margin-bottom:8vh; margin-top:4vh;"></div>
-		<div class="login-heading display-4 text-center mb-5">Order Payment</div>
+	<div class="container" style="margin-bottom:8vh; margin-top:2vh;">
+	  <div class="login-heading display-4 text-center mb-5">Order Payment</div>
 	    <div class="row">
 	        <div class="col-lg-6 mx-auto">
 	            <div class="card ">
 	                <div class="card-header">
-										<h4 class="login-heading text-center">Payment Details</h4>
+						<h4 class="login-heading text-center">Payment Details</h4>
 	                    <!-- Credit card form content -->
 	                    <div class="tab-content">
 	                        <!-- credit card info-->
@@ -34,7 +34,7 @@
 	                                    <div class="col-sm-8">
 	                                        <div class="form-group"> 
 	                                        	<label style="font-weight:500;"><span class="hidden-xs">Expiration Date</span></label>
-	                                            <div class="input-group"> <input type="number" placeholder="MM" id="month" class="form-control" required> <input type="number" placeholder="YY" id="year" class="form-control" required> </div>
+	                                            <div class="input-group"> <input type="number" placeholder="MM" id="month" class="form-control" required> <input type="number" placeholder="YYYY" id="year" class="form-control" required> </div>
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-sm-4">
@@ -45,16 +45,16 @@
 	                                </div>
 	                                <div class="card-footer">
 	                                	<button disabled class="btn btn-block btn-primary">Final Payment : <i class="fas fa-rupee-sign mr-1"></i>${order.cart.grandTotal}</button> 
-	                                	<button class="subscribe btn btn-success btn-block shadow-sm" name="_eventId_paymentConfirmed"> Confirm Payment </button>
-	                                	<button class="subscribe btn btn-danger btn-block shadow-sm" name="_eventId_cancel"> Cancel Payment </button>
-	                                </div>
+	                                	<button id="btn" class="subscribe btn btn-success btn-block shadow-sm" name="_eventId_paymentConfirmed"> Confirm Payment </button>
+	                                	<input type="button" value="Cancel Payment" class="subscribe btn btn-danger btn-block shadow-sm" name="_eventId_cancel"> 
+	                            	</div>
 	                            </form:form>
 	                        </div>
 	                    </div> <!-- End -->
 	                </div>
 	            </div>
 	        </div>
-	    </div>
+	     </div>
     </div>
 </body>
 <script src="/resources/static/js/payment.js"></script>
