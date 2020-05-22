@@ -95,7 +95,7 @@ public class SessionController {
 	
 	@GetMapping("/signup")
 	public String signupForm(Model model, @RequestParam(value="customererror", required=false) String error,	
-									@RequestParam("accountError") String accountError) {
+									@RequestParam(value="accountError", required=false) String accountError) {
 		Customer_info customer = new Customer_info();
 		if(error != null)
 			model.addAttribute("customererror", "Customer already exists!");
