@@ -7,7 +7,7 @@
  	</head>
 	 <body>
 		 <jsp:include page="navbar.jsp"></jsp:include>
-		 <div class="container ontainer-sm main1" >
+		 <div class="container main1" >
 		 		<c:if test="${not empty productsuccess}">
 					<div class="alert alert-warning alert-dismissible fade show" role="alert">
 						<strong>${productsuccess}</strong>
@@ -80,7 +80,7 @@
 						<div class="card-deck">
 							<c:forEach items="${products}" var="product">
 							  <div class="col-lg-4 col-sm-12">
-							 	 <div class="card card-style" style="border:none;margin-bottom: 10vh;margin-left: 4vh">
+							 	 <div class="card card-style" style="border:none;margin-bottom: 10vh;">
 								    <img src="<c:url value="${product.url}"/>" class="card-img-top" style="height:350px;width:100%;">
 								    <div class="card-body card-body-style" style="height:12vh;">
 								     	<h5 class="card-title" style="font-size:17px;">${fn:substring(product.productName, 0, 80)}...</h5>					
