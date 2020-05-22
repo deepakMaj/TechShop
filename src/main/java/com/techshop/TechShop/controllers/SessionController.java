@@ -114,7 +114,7 @@ public class SessionController {
 		boolean result_detail = customerservice.userexist(customer.getEmail());
 		if(result_detail == true) {
 			model.addObject("customererror", true);
-			return new ModelAndView("redirect:/signup");
+			return new ModelAndView("redirect:/signup?customererror");
 		}
 		else {
 			model.addObject("message", true);
