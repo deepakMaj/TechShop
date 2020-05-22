@@ -34,7 +34,7 @@
 	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Apple">Apple</a>
 	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Samsung">Samsung</a>
 	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Redmi">Redmi</a>
-	           <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Redmi">Lenovo</a>
+	           <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Lenovo">Lenovo</a>
 	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=HP">HP</a>
 	          <a class="dropdown-item" href="${pageContext.request.contextPath}/product/list/0?brandProduct=Dell">Dell</a>
 	        </div>
