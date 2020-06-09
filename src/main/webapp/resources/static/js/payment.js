@@ -1,49 +1,62 @@
-const cardName = document.getElementById('username');
-const cardNumber = document.getElementById('cardNumber');
-const cardMonth = document.getElementById('month');
-const cardYear = document.getElementById('year');
-const cardCvv = document.getElementById('cvv');
+document.getElementById('name').addEventListener('blur', validateName);
+document.getElementById('card').addEventListener('blur', validateCard);
+document.getElementById('month').addEventListener('blur', validateMonth);
+document.getElementById('year').addEventListener('blur', validateYear);
+document.getElementById('cvv').addEventListener('blur', validateCvv);
 
-paymentConfirmation();
-
-function paymentConfirmation(){
-  document.getElementById('btn').addEventListener('click', validCard);
+function validateName(){
+	const name = document.getElementById('name');
+	const re = /^[A-Za-z]{4,20}$/;
+	if(!re.test(name.value)){
+		name.classList.add('is-invalid');
+	}
+	else{
+		name.classList.remove('is-invalid');
+	}
 }
 
-function validCard(e){
-  const date = new Date().getFullYear;
-  if(cardName.type === 'number'){
-    showError('Please enter valid card owner name');
-    e.preventDefault();
-  }
-  if(cardNumber.type === 'string' || cardNumber.value.toString().length != 16){
-    showError('Please enter valid card number');
-    e.preventDefault();
-  }
-  if(cardMonth.value > 12 || cardMonth.value < 1){
-    showError('Please enter valid month');
-    e.preventDefault();
-  }
-  if(cardYear.value.toString().length < date){
-    showError('Please enter valid year');
-    e.preventDefault();
-  }
-  if(cardCvv.type === 'string' || cardCvv.value.toString().length != 3){
-    showError('Please enter valid Cvv number');
-    e.preventDefault();
-  }
+function validateCard(){
+	const card = document.getElementById('card');
+	const re = /^[1-9][0-9]{3}\-[0-9]{4}\-[0-9]{4}\-[0-9]{4}$/;
+	if(!re.test(card.value)){
+		card.classList.add('is-invalid');
+	}
+	else{
+		card.classList.remove('is-invalid');
+	}
 }
 
-function showError(error){
-  const alert = document.createElement('div');
-  alert.className = 'alert alert-danger';
-  alert.appendChild(document.createTextNode(error));
-  const container = document.querySelector('.container');
-  const heading = document.querySelector('.login-heading');
-  container.insertBefore(alert, heading);
-  setTimeout(clearError, 5000);
+function validateMonth(){
+	const month = document.getElementById('month');
+	const re = /^[0-1][1-9]$/;
+	if(!re.test(month.value)){
+		console.log('Error');
+		month.classList.add('is-invalid');
+	}
+	else{
+		month.classList.remove('is-invalid');
+	}
 }
 
-function clearError(){
-  document.querySelector('.alert').remove();
+function validateYear(){
+	const year = document.getElementById('year');
+	const date = new Date();
+	const re = /^2[0-9]{3}$/;
+	if(!(parseInt(year.value) >= date.getFullYear() && re.test(year.value))){
+		year.classList.add('is-invalid');
+	}
+	else{
+		year.classList.remove('is-invalid');
+	}
+}
+
+function validateCvv(){
+	const cvv = document.getElementById('cvv');
+	const re = /^[1-9][0-9]{2}$/;
+	if(!re.test(cvv.value)){
+		cvv.classList.add('is-invalid');
+	}
+	else{
+		cvv.classList.remove('is-invalid');
+	}
 }
