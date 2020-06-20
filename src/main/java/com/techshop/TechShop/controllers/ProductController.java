@@ -49,6 +49,7 @@ public class ProductController {
 			model.addAttribute("categoryLaptop", true);
 		}
 		else if(searchValue != null) {
+			searchValue = searchValue.substring(0, 1).toUpperCase() + searchValue.substring(1, searchValue.length()).toLowerCase();
 			List<Product> searchProducts = productservice.getByManufacturer(searchValue);
 			if(searchProducts.isEmpty()) {
 				model.addAttribute("noProducts", true);
